@@ -1,11 +1,12 @@
+javascript
 // script.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Select the form and feedback div using their IDs
     const form = document.getElementById('registration-form');
     const feedbackDiv = document.getElementById('form-feedback');
 
     // Add an event listener for the form submission
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', function(event) {
         // Prevent the form from submitting normally
         event.preventDefault();
 
@@ -42,13 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackDiv.style.display = 'block';
 
         if (isValid) {
-            // If all validations pass, display a success message
+            // If all validations pass, display a success message with inline styling
             feedbackDiv.textContent = 'Registration successful!';
-            feedbackDiv.className = 'success-message'; // Use a class for consistent styling
+            feedbackDiv.style.color = '#28a745';
+            feedbackDiv.style.backgroundColor = '#d4edda';
         } else {
-            // If validations fail, join the error messages and display them
+            // If validations fail, join the error messages and display them with inline styling
             feedbackDiv.innerHTML = messages.join('<br>');
-            feedbackDiv.className = 'error-message'; // Use a class for consistent styling
+            feedbackDiv.style.color = '#dc3545';
+            feedbackDiv.style.backgroundColor = '#f8d7da';
         }
     });
-});
